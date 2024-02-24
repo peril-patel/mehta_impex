@@ -1,0 +1,45 @@
+/* input css start */
+
+.input_tag {
+    border-radius: 20px;
+    background-color: #EDEDED;
+    border: none;
+    height: 40px;
+}
+
+.input_tag:focus {
+    background-color: #EDEDED;
+    border: none;
+    box-shadow: none;
+}
+
+.input_tag::placeholder {
+    color: #6C6B6B;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* input css end */
+
+
+/* dropdown css start */
+
+.drop_down {
+    border-radius: 20px;
+    background-color: #EDEDED;
+    border: none;
+    height: 40px;
+    color: #6C6B6B;
+    font-size: 12px;
+}
+
+.drop_down:focus {
+    box-shadow: none;
+}
+
+/* dropdown css end */
+
+.add_more{
+ color: #6C6B6B;
+ font-size: 12px;
+}
