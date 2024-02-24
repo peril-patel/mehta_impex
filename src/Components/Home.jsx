@@ -43,14 +43,14 @@ function Home() {
 
 
 
-  const handleAddCountry = () => {
-    const newCountryName = prompt('Enter the name of the new country:');
-    if (newCountryName) {
+  const handleAddCode = () => {
+    const newCode = prompt('Enter the name of the new data:');
+    if (newCode) {
       setitems((previtems) => [
         ...previtems,
         {
           id: previtems.length + 1,
-          name: newCountryName,
+          name: newCode,
           cities: [],
         },
       ]);
@@ -69,20 +69,20 @@ function Home() {
         <div className='d-flex mt-3 justify-content-between align-items-center'>
           <select className="form-select drop_down w-50" value={selectedcode} onChange={handleCodeChange}>
             <option value="">CODE</option>
-            {items.map((country) => (
-              <option key={country.id} value={country.name}>
-                {country.name}
+            {items.map((data) => (
+              <option key={data.id} value={data.name}>
+                {data.name}
               </option>
             ))}
           </select>
-          <div className='add_more' onClick={handleAddCountry}>+ ADD MORE ITEM</div>
+          <div className='add_more' onClick={handleAddCode}>+ ADD MORE ITEM</div>
         </div>
 
         <div className="mt-3">
           <select className="form-select drop_down" value={selectedMm} onChange={handleMmChange}>
             <option value="">MM</option>
             {items
-              .find((country) => country.name === selectedcode)
+              .find((data) => data.name === selectedcode)
               ?.cities.map((city) => (
                 <option key={city.name} value={city.name}>
                   {city.name}
@@ -95,7 +95,7 @@ function Home() {
           <select className="form-select drop_down" value={selectedParticulers} onChange={handleParticulersChange}>
             <option value="">PARTICULARS</option>
             {items
-              .find((country) => country.name === selectedcode)
+              .find((data) => data.name === selectedcode)
               ?.cities.find((city) => city.name === selectedMm)
               ?.pinCodes.map((pincode) => (
                 <option key={pincode} value={pincode}>
@@ -110,7 +110,7 @@ function Home() {
         {selectedcode && selectedMm && selectedParticulers && (
           <div className="mt-3">
             <p>
-              Selected Country: {selectedcode}, Selected City: {selectedMm}, Selected Pincode: {selectedParticulers}
+              Selected data: {selectedcode}, Selected City: {selectedMm}, Selected Pincode: {selectedParticulers}
             </p>
           </div>
         )}
