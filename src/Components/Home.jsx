@@ -13,35 +13,18 @@ function Home() {
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedPincode, setSelectedPincode] = useState('');
 
-  const countries = [
+  const [countries, setCountries] = useState([
     {
       id: 1,
       name: 'UCLE',
       cities: [
-        { name: 'New York', pinCodes: ['10001', '10002', '10003'] },
-        { name: 'Los Angeles', pinCodes: ['90001', '90002', '90003'] },
-        { name: 'Chicago', pinCodes: ['60601', '60602', '60603'] },
+        { name: '4', pinCodes: ['WHITE BACK PAINTED GLASS', 'BLACK BACK PAINTED GLASS'] },
+        { name: '5', pinCodes: ['WHITE BACK PAINTED GLASS', 'ULTRA CLEAR FLUTELINE',] },
+        { name: '6', pinCodes: ['WHITE BACK PAINTED GLASS'] },
+        { name: '8', pinCodes: ['CLEAR MORU'] },
       ],
     },
-    {
-      id: 2,
-      name: 'Mii',
-      cities: [
-        { name: 'Toronto', pinCodes: ['M1B', 'M2H', 'M3C'] },
-        { name: 'Vancouver', pinCodes: ['V5K', 'V6B', 'V7C'] },
-        { name: 'Montreal', pinCodes: ['H1A', 'H2B', 'H3C'] },
-      ],
-    },
-    {
-      id: 3,
-      name: 'UK',
-      cities: [
-        { name: 'London', pinCodes: ['SW1A', 'WC1A', 'EC1A'] },
-        { name: 'Manchester', pinCodes: ['M1', 'M2', 'M3'] },
-        { name: 'Birmingham', pinCodes: ['B1', 'B2', 'B3'] },
-      ],
-    },
-  ];
+  ]);
 
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
@@ -58,6 +41,22 @@ function Home() {
     setSelectedPincode(e.target.value);
   };
 
+
+
+  const handleAddCountry = () => {
+    const newCountryName = prompt('Enter the name of the new country:');
+    if (newCountryName) {
+      setCountries((prevCountries) => [
+        ...prevCountries,
+        {
+          id: prevCountries.length + 1,
+          name: newCountryName,
+          cities: [],
+        },
+      ]);
+    }
+  };
+
   return (
     <div className="container text-center">
       <img style={{ width: '80%', textAlign: 'center' }} src={logo}></img>
@@ -69,19 +68,19 @@ function Home() {
       <div className='mt-3'>
         <div className='d-flex mt-3 justify-content-between align-items-center'>
           <select className="form-select drop_down w-50" value={selectedCountry} onChange={handleCountryChange}>
-            <option value="">Select Country</option>
+            <option value="">CODE</option>
             {countries.map((country) => (
               <option key={country.id} value={country.name}>
                 {country.name}
               </option>
             ))}
           </select>
-          <div className='add_more'>+ ADD MORE ITEM</div>
+          <div className='add_more' onClick={handleAddCountry}>+ ADD MORE ITEM</div>
         </div>
 
         <div className="mt-3">
           <select className="form-select drop_down" value={selectedCity} onChange={handleCityChange}>
-            <option value="">Select City</option>
+            <option value="">MM</option>
             {countries
               .find((country) => country.name === selectedCountry)
               ?.cities.map((city) => (
@@ -94,7 +93,7 @@ function Home() {
 
         <div className="mt-3">
           <select className="form-select drop_down" value={selectedPincode} onChange={handlePincodeChange}>
-            <option value="">Select Pincode</option>
+            <option value="">PARTICULARS</option>
             {countries
               .find((country) => country.name === selectedCountry)
               ?.cities.find((city) => city.name === selectedCity)
@@ -106,6 +105,8 @@ function Home() {
           </select>
         </div>
 
+      
+
         {selectedCountry && selectedCity && selectedPincode && (
           <div className="mt-3">
             <p>
@@ -114,6 +115,7 @@ function Home() {
           </div>
         )}
       </div>
+
     </div>
   )
 }
