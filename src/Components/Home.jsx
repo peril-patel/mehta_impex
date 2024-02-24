@@ -17,11 +17,11 @@ function Home() {
     {
       id: 1,
       name: 'UCLE',
-      cities: [
-        { name: '4', pinCodes: ['WHITE BACK PAINTED GLASS', 'BLACK BACK PAINTED GLASS'] },
-        { name: '5', pinCodes: ['WHITE BACK PAINTED GLASS', 'ULTRA CLEAR FLUTELINE',] },
-        { name: '6', pinCodes: ['WHITE BACK PAINTED GLASS'] },
-        { name: '8', pinCodes: ['CLEAR MORU'] },
+      mm: [
+        { name: '4', Particulers: ['WHITE BACK PAINTED GLASS', 'BLACK BACK PAINTED GLASS'] },
+        { name: '5', Particulers: ['WHITE BACK PAINTED GLASS', 'ULTRA CLEAR FLUTELINE',] },
+        { name: '6', Particulers: ['WHITE BACK PAINTED GLASS'] },
+        { name: '8', Particulers: ['CLEAR MORU'] },
       ],
     },
   ]);
@@ -51,7 +51,7 @@ function Home() {
         {
           id: previtems.length + 1,
           name: newCode,
-          cities: [],
+          mm: [],
         },
       ]);
     }
@@ -83,7 +83,7 @@ function Home() {
             <option value="">MM</option>
             {items
               .find((data) => data.name === selectedcode)
-              ?.cities.map((city) => (
+              ?.mm.map((city) => (
                 <option key={city.name} value={city.name}>
                   {city.name}
                 </option>
@@ -96,8 +96,8 @@ function Home() {
             <option value="">PARTICULARS</option>
             {items
               .find((data) => data.name === selectedcode)
-              ?.cities.find((city) => city.name === selectedMm)
-              ?.pinCodes.map((pincode) => (
+              ?.mm.find((city) => city.name === selectedMm)
+              ?.Particulers.map((pincode) => (
                 <option key={pincode} value={pincode}>
                   {pincode}
                 </option>
