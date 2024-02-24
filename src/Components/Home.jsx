@@ -9,11 +9,11 @@ function Home() {
 
 
 
-  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedcode, setselectedcode] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedPincode, setSelectedPincode] = useState('');
 
-  const [countries, setCountries] = useState([
+  const [items, setitems] = useState([
     {
       id: 1,
       name: 'UCLE',
@@ -27,7 +27,7 @@ function Home() {
   ]);
 
   const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value);
+    setselectedcode(e.target.value);
     setSelectedCity('');
     setSelectedPincode('');
   };
@@ -46,10 +46,10 @@ function Home() {
   const handleAddCountry = () => {
     const newCountryName = prompt('Enter the name of the new country:');
     if (newCountryName) {
-      setCountries((prevCountries) => [
-        ...prevCountries,
+      setitems((previtems) => [
+        ...previtems,
         {
-          id: prevCountries.length + 1,
+          id: previtems.length + 1,
           name: newCountryName,
           cities: [],
         },
@@ -67,9 +67,9 @@ function Home() {
 
       <div className='mt-3'>
         <div className='d-flex mt-3 justify-content-between align-items-center'>
-          <select className="form-select drop_down w-50" value={selectedCountry} onChange={handleCountryChange}>
+          <select className="form-select drop_down w-50" value={selectedcode} onChange={handleCountryChange}>
             <option value="">CODE</option>
-            {countries.map((country) => (
+            {items.map((country) => (
               <option key={country.id} value={country.name}>
                 {country.name}
               </option>
@@ -81,8 +81,8 @@ function Home() {
         <div className="mt-3">
           <select className="form-select drop_down" value={selectedCity} onChange={handleCityChange}>
             <option value="">MM</option>
-            {countries
-              .find((country) => country.name === selectedCountry)
+            {items
+              .find((country) => country.name === selectedcode)
               ?.cities.map((city) => (
                 <option key={city.name} value={city.name}>
                   {city.name}
@@ -94,8 +94,8 @@ function Home() {
         <div className="mt-3">
           <select className="form-select drop_down" value={selectedPincode} onChange={handlePincodeChange}>
             <option value="">PARTICULARS</option>
-            {countries
-              .find((country) => country.name === selectedCountry)
+            {items
+              .find((country) => country.name === selectedcode)
               ?.cities.find((city) => city.name === selectedCity)
               ?.pinCodes.map((pincode) => (
                 <option key={pincode} value={pincode}>
@@ -107,10 +107,10 @@ function Home() {
 
       
 
-        {selectedCountry && selectedCity && selectedPincode && (
+        {selectedcode && selectedCity && selectedPincode && (
           <div className="mt-3">
             <p>
-              Selected Country: {selectedCountry}, Selected City: {selectedCity}, Selected Pincode: {selectedPincode}
+              Selected Country: {selectedcode}, Selected City: {selectedCity}, Selected Pincode: {selectedPincode}
             </p>
           </div>
         )}
