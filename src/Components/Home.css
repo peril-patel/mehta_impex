@@ -39,7 +39,54 @@
 
 /* dropdown css end */
 
-.add_more{
- color: #6C6B6B;
- font-size: 12px;
+.add_more {
+    color: #6C6B6B;
+    font-size: 12px;
+}
+
+.qty_div {
+    background-color: #EDEDED;
+    height: 40px;
+    color: #6C6B6B;
+    font-size: 12px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_quatation_btn {
+    width: 100%;
+    background-color: #0A902F;
+    border-radius: 20px;
+    color: white;
+}
+
+.add_quatation_btn:hover {
+    background-color: #0A902F;
+    border-radius: 20px;
+    color: white;
+}
+
+.add_quatation_btn:active {
+    background-color: #0A902F !important;
+    border-radius: 20px;
+    color: white !important;
+    border-color: #0A902F !important;
+}
+
+.table thead tr th {
+    background-color: #E9E7E7 !important;
+    font-size: 12px;
+    font-weight: 400;
+    color: #6C6B6B;
+    white-space: nowrap;
+}
+
+.table tbody tr td {
+    background-color: #E9E7E7 !important;
+    font-size: 12px;
+    font-weight: 400;
+    color: #2F2E2E;
+    white-space: nowrap;
 }
